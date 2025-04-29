@@ -42,9 +42,32 @@ public class Main {
                     //swap
                     int temp = nums[k];
                     nums[k] = nums[k + 1];
-                    nums[k + 1] = temp; 
+                    nums[k + 1] = temp;
                 }
             }
+        }
+    }
+
+    /*
+    315214
+    135214
+    115234
+    112534
+    112354
+    112345
+     */
+    public static  void selectionSor(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            int key = nums[i];
+            for (int j = 0; i < nums.length; j++) {
+                if (nums[j] < key) {
+                    key = j;
+                }
+            }
+            //swap nums[i] and nums [minIdx]
+            int temp = nums[i];
+            nums[i] = nums[key];
+            nums[key] = temp;
         }
     }
 }
