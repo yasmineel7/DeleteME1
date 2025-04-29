@@ -15,6 +15,10 @@ public class Main {
         num2 = temp;
     }
 
+    public static void bubbleSort(int[] nums) {
+        bubbleSort(nums, true);
+    }
+
     /*
     31  5214
     1 35 214
@@ -35,15 +39,19 @@ public class Main {
 
     112
      */
-    public static void bubbleSort(int[] nums) {
+    public static void bubbleSort(int[] nums, boolean ascending) {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int k = 0; k < nums.length - 1 - i; k++) {
-                if (nums[k] > nums[k +1]) {
-                    //swap
-                    int temp = nums[k];
-                    nums[k] = nums[k + 1];
-                    nums[k + 1] = temp;
-                }
+                boolean condition = ascending
+                        ? nums[k] > nums[k + 1]
+                        : nums[k] < nums[k + 1];
+                    if (nums[k] > nums[k + 1]) {
+                        //swap
+                        int temp = nums[k];
+                        nums[k] = nums[k + 1];
+                        nums[k + 1] = temp;
+                    }
+
             }
         }
     }
